@@ -10,10 +10,18 @@ black==22.1.0
     # via -r requirements.in
 certifi==2021.10.8
     # via requests
+cfgv==3.3.1
+    # via pre-commit
 charset-normalizer==2.0.12
     # via requests
 click==8.0.4
     # via black
+distlib==0.3.4
+    # via virtualenv
+filelock==3.6.0
+    # via virtualenv
+identify==2.4.12
+    # via pre-commit
 idna==3.3
     # via requests
 isort==5.10.1
@@ -22,15 +30,29 @@ lxml==4.8.0
     # via -r requirements.in
 mypy-extensions==0.4.3
     # via black
+nodeenv==1.6.0
+    # via pre-commit
 pathspec==0.9.0
     # via black
 platformdirs==2.5.1
-    # via black
+    # via
+    #   black
+    #   virtualenv
+pre-commit==2.17.0
+    # via -r requirements.in
+pyyaml==6.0
+    # via pre-commit
 requests==2.27.1
     # via -r requirements.in
+six==1.16.0
+    # via virtualenv
 soupsieve==2.3.1
     # via beautifulsoup4
+toml==0.10.2
+    # via pre-commit
 tomli==2.0.1
     # via black
 urllib3==1.26.9
     # via requests
+virtualenv==20.14.0
+    # via pre-commit
