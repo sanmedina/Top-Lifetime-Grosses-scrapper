@@ -20,6 +20,8 @@ distlib==0.3.4
     # via virtualenv
 filelock==3.6.0
     # via virtualenv
+flake8==4.0.1
+    # via -r requirements.in
 identify==2.4.12
     # via pre-commit
 idna==3.3
@@ -28,8 +30,14 @@ isort==5.10.1
     # via -r requirements.in
 lxml==4.8.0
     # via -r requirements.in
+mccabe==0.6.1
+    # via flake8
+mypy==0.942
+    # via -r requirements.in
 mypy-extensions==0.4.3
-    # via black
+    # via
+    #   black
+    #   mypy
 nodeenv==1.6.0
     # via pre-commit
 pathspec==0.9.0
@@ -40,6 +48,10 @@ platformdirs==2.5.1
     #   virtualenv
 pre-commit==2.17.0
     # via -r requirements.in
+pycodestyle==2.8.0
+    # via flake8
+pyflakes==2.4.0
+    # via flake8
 pyyaml==6.0
     # via pre-commit
 requests==2.27.1
@@ -51,7 +63,15 @@ soupsieve==2.3.1
 toml==0.10.2
     # via pre-commit
 tomli==2.0.1
-    # via black
+    # via
+    #   black
+    #   mypy
+types-requests==2.27.14
+    # via -r requirements.in
+types-urllib3==1.26.11
+    # via types-requests
+typing-extensions==4.1.1
+    # via mypy
 urllib3==1.26.9
     # via requests
 virtualenv==20.14.0
