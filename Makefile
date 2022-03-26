@@ -17,3 +17,6 @@ format:
 
 data/list:
 	.venv/bin/python src/download_list.py
+
+data/films: data/list
+	.venv/bin/python src/download_films.py
