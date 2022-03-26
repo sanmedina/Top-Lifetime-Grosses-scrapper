@@ -68,7 +68,7 @@ def iter_html_files() -> Iterator[Path]:
         yield html_path
 
 
-def scrap_films() -> Iterator[FilmRow]:
+def scrap_film_rows() -> Iterator[FilmRow]:
     for html_path in iter_html_files():
         with html_path.open(mode="r") as html_fp:
             soup = BeautifulSoup(html_fp.read(), "lxml")
@@ -90,7 +90,7 @@ def main():
     films_dir_path = Path(__file__).parent.parent / "data" / "films"
     if not films_dir_path.is_dir():
         films_dir_path.mkdir(parents=True)
-    for film in scrap_films():
+    for film in scrap_film_rows():
         film_info_url = f"{BASE_URL}{film.file_info_url}"
         film_path = films_dir_path / f"{film.title.replace('/', '--')}.html"
 
