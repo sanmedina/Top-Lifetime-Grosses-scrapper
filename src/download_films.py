@@ -10,7 +10,7 @@ from bs4.element import Tag
 BASE_URL = "https://www.boxofficemojo.com"
 
 
-class Film(NamedTuple):
+class FilmRow(NamedTuple):
     rank: int
     title: str
     file_info_url: str
@@ -22,7 +22,7 @@ class Film(NamedTuple):
     year: int
 
     @staticmethod
-    def parse_row(raw_info: Tag) -> "Film":
+    def parse_row(raw_info: Tag) -> "FilmRow":
         row_iter = iter(raw_info.children)
 
         def get_text() -> str:
@@ -49,7 +49,7 @@ class Film(NamedTuple):
         foreign_percentage = parse_percentage(get_text())
         year = int(get_text())
 
-        return Film(
+        return FilmRow(
             rank,
             title,
             file_info_url,
@@ -68,7 +68,7 @@ def iter_html_files() -> Iterator[Path]:
         yield html_path
 
 
-def scrap_films() -> Iterator[Film]:
+def scrap_films() -> Iterator[FilmRow]:
     for html_path in iter_html_files():
         with html_path.open(mode="r") as html_fp:
             soup = BeautifulSoup(html_fp.read(), "lxml")
@@ -83,7 +83,7 @@ def scrap_films() -> Iterator[Film]:
             print(column.span.get_text())
 
         for raw_info in children_iter:
-            yield Film.parse_row(raw_info)
+            yield FilmRow.parse_row(raw_info)
 
 
 def main():
