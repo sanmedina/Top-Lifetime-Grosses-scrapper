@@ -4,9 +4,10 @@ venv: .venv
 	python3 -m venv .venv
 	.venv/bin/pip install -U pip setuptools wheel
 	.venv/bin/pip install pip-tools
+	.venv/bin/pip install -e .
 
-compile.in:
-	.venv/bin/pip-compile -r requirements.in
+compile.setup:
+	.venv/bin/pip-compile
 
 sync:
 	.venv/bin/pip-sync
@@ -20,3 +21,6 @@ data/list:
 
 data/films: data/list
 	.venv/bin/python src/download_films.py
+
+data/grossing_list.csv: data/films
+	.venv/bin/python src/generate_csv.py

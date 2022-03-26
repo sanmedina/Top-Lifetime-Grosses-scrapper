@@ -1,9 +1,0 @@
-beautifulsoup4
-lxml
-requests
-black
-isort
-pre-commit
-flake8
-mypy
-types-requests
