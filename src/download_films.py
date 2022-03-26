@@ -1,7 +1,7 @@
 import re
 import time
 from pathlib import Path
-from typing import Iterator, NamedTuple, Optional
+from typing import Iterator, NamedTuple
 
 import requests
 from bs4 import BeautifulSoup
@@ -14,11 +14,11 @@ class Film(NamedTuple):
     rank: int
     title: str
     file_info_url: str
-    worldwide_lifetime_gross: Optional[int]
-    domestic_lifetime_gross: Optional[int]
-    domestic_percentage: Optional[float]
-    foreign_lifetime_gross: Optional[int]
-    foreing_percentage: Optional[float]
+    worldwide_lifetime_gross: int | None
+    domestic_lifetime_gross: int | None
+    domestic_percentage: float | None
+    foreign_lifetime_gross: int | None
+    foreing_percentage: float | None
     year: int
 
     @staticmethod
@@ -28,12 +28,12 @@ class Film(NamedTuple):
         def get_text() -> str:
             return next(row_iter).get_text()
 
-        def parse_gross(value: str) -> Optional[int]:
+        def parse_gross(value: str) -> int | None:
             if value == "-":
                 return None
             return int(re.sub(r"[,$]", "", value))
 
-        def parse_percentage(value: str) -> Optional[float]:
+        def parse_percentage(value: str) -> float | None:
             if value == "-":
                 return None
             return float(re.sub(r"[%<]", "", value)) / 100
