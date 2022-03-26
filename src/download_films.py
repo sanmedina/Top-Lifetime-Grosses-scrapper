@@ -18,7 +18,7 @@ class Film(NamedTuple):
     domestic_lifetime_gross: int | None
     domestic_percentage: float | None
     foreign_lifetime_gross: int | None
-    foreing_percentage: float | None
+    foreign_percentage: float | None
     year: int
 
     @staticmethod
