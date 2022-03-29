@@ -6,11 +6,11 @@ venv: .venv
 	.venv/bin/pip install pip-tools
 	.venv/bin/pip install -e .
 
-compile.setup:
+compile.setup: .venv
 	.venv/bin/pip-compile
 
-sync:
-	.venv/bin/pip-sync
+sync: .venv
+	.venv/bin/pip-sync --pip-args "-e ."
 
 format:
 	.venv/bin/black .
