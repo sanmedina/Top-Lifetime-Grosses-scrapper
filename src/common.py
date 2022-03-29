@@ -1,9 +1,16 @@
 import re
+import time
 from pathlib import Path
 from typing import Iterator, NamedTuple
 
 from bs4 import BeautifulSoup
 from bs4.element import Tag
+
+SLEEP_TIME = 1  # secs
+
+
+def sleep_scrap() -> None:
+    time.sleep(SLEEP_TIME)
 
 
 class DataPaths:

@@ -1,8 +1,7 @@
-import time
-
 import requests
 
-from src.common import DataPaths, sanitize_file_name, scrap_film_rows
+from src.common import (DataPaths, sanitize_file_name, scrap_film_rows,
+                        sleep_scrap)
 
 BASE_URL = "https://www.boxofficemojo.com"
 
@@ -29,7 +28,7 @@ def main():
         with film_path.open(mode="wb") as film_fp:
             film_fp.write(response.content)
 
-        time.sleep(2)
+        sleep_scrap()
 
 
 if __name__ == "__main__":
