@@ -22,6 +22,7 @@ class FilmRow(NamedTuple):
     rank: int
     title: str
     file_info_url: str
+    imdb_id: str
     worldwide_lifetime_gross: int | None
     domestic_lifetime_gross: int | None
     domestic_percentage: float | None
@@ -50,6 +51,8 @@ class FilmRow(NamedTuple):
         title_row = next(row_iter)
         title = title_row.get_text()
         file_info_url = title_row.a.attrs["href"]
+        id_groups = re.findall(r"title\/(\w+)\/", file_info_url)
+        imdb_id = id_groups[0]
         worldwide_lifetime_gross = parse_gross(get_text())
         domestic_lifetime_gross = parse_gross(get_text())
         domestic_percentage = parse_percentage(get_text())
@@ -61,6 +64,7 @@ class FilmRow(NamedTuple):
             rank,
             title,
             file_info_url,
+            imdb_id,
             worldwide_lifetime_gross,
             domestic_lifetime_gross,
             domestic_percentage,
