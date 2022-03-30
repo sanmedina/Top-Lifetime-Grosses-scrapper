@@ -22,13 +22,13 @@ def fetch_rating(film_info: FilmInfo) -> str | None:
         return None
 
     # Try MPA rating
-    us_rating_pattern = r"United States:([\-PGR13NC7]+)"
+    us_rating_pattern = r"United States:([\-PGR13NC7]+)<"
     us_rating_groups = re.findall(us_rating_pattern, response.content.decode())
     if us_rating_groups:
         return us_rating_groups[0]
 
     # Try MDA rating
-    sg_rating_pattern = r"Singapore:([GP13NC6M8R2]+)"
+    sg_rating_pattern = r"Singapore:([GP13NC6M8R2]+)<"
     sg_rating_groups = re.findall(sg_rating_pattern, response.content.decode())
     if sg_rating_groups:
         return sg_rating_groups[0]
