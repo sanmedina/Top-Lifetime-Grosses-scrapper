@@ -2,7 +2,7 @@ from pathlib import Path
 
 import requests
 
-from src.common import TIME_SLEEP, sleep_scrap
+from src.common import SLEEP_TIME, sleep_scrap
 
 TOP_GROSSING_URL = "https://www.boxofficemojo.com/chart/ww_top_lifetime_gross/"
 
@@ -28,7 +28,7 @@ def main():
         with offset_html_path.open(mode="wb") as offset_fp:
             offset_fp.write(response.content)
 
-        print(f"{url} downloaded. Waiting {TIME_SLEEP} secs...")
+        print(f"{url} downloaded. Waiting {SLEEP_TIME} secs...")
         sleep_scrap()
 
 

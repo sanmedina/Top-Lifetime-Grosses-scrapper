@@ -1,7 +1,6 @@
 import requests
 
-from src.common import (DataPaths, sanitize_file_name, scrap_film_rows,
-                        sleep_scrap)
+from src.common import DataPaths, sanitize_file_name, scrap_film_rows, sleep_scrap
 
 BASE_URL = "https://www.boxofficemojo.com"
 
