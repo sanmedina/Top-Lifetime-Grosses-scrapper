@@ -158,4 +158,5 @@ cython_debug/
 # End of https://www.toptal.com/developers/gitignore/api/python
 
 .vscode/
-data/
+data/*
+!data/grossing_list.csv
